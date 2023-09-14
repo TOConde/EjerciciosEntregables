@@ -4,9 +4,16 @@ class Cafetera {
   private _capacidadMaxima: number;
   private _cantidadActual: number;
 
-  constructor(capacidadMaxima: number = 1000, cantidadActual: number = 0) {
+  constructor(capacidadMaxima: number = 1000, cantidadActual?: number) {
     this._capacidadMaxima = capacidadMaxima;
-    this._cantidadActual = cantidadActual;
+
+    if (typeof cantidadActual === 'number') {
+      this._cantidadActual = Math.min(cantidadActual, capacidadMaxima);
+    } else if(capacidadMaxima === 1000) {
+      this._cantidadActual = 0;
+    } else {
+      this._cantidadActual = capacidadMaxima;
+    }
   }
 
   llenarCafetera() {
@@ -38,26 +45,12 @@ class Cafetera {
 }
 
 const cafetera1 = new Cafetera;
-const cafetera2 = new Cafetera(1250, 1000)
+const cafetera2 = new Cafetera(1250);
+const cafetera3 = new Cafetera(1000, 200);
+const cafetera4 = new Cafetera(1000, 2000);
 
 console.log(cafetera1);
 console.log(cafetera2);
+console.log(cafetera3);
+console.log(cafetera4);
 
-cafetera1.llenarCafetera();
-cafetera2.vaciarCafetera();
-
-console.log("");
-console.log("");
-
-console.log(cafetera1);
-console.log(cafetera2);
-
-cafetera2.agregarCafe(250);
-
-console.log(cafetera2);
-
-cafetera1.servirTaza(250);
-
-console.log(cafetera1);
-cafetera1.servirTaza(1000);
-console.log(cafetera1);
