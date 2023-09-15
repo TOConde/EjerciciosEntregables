@@ -22,3 +22,27 @@ interface VehiculoBuilder {
   setAsientos(cantidadAsientos: number): void;
   build(): Vehiculo;
 }
+
+class VehiculoBuilderEspecifico implements VehiculoBuilder {
+
+
+  setMarca(marca: string): void {
+    
+  }
+
+  setModelo(modelo: string): void {
+    
+  }
+
+  setColor(color: string): void {
+    
+  }
+
+  setAsientos(cantidadAsientos: number): void {
+    
+  }
+
+  build(): Vehiculo {
+    return 1;
+  }
+}
