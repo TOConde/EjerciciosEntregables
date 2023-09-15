@@ -10,7 +10,7 @@ class FabricarVehiculo {
 }
 
 class Vehiculo {
-  constructor(marca: string, modelo: string, color: string, cantidadAsientos: number) {
+  constructor(public marca: string, public modelo: string, public color: string, public cantidadAsientos: number) {
     
   }
 }
@@ -24,25 +24,29 @@ interface VehiculoBuilder {
 }
 
 class VehiculoBuilderEspecifico implements VehiculoBuilder {
+  private vehiculo: Vehiculo;
 
+  constructor() {
+    this.vehiculo = new Vehiculo('', '', '', 0)
+  }
 
   setMarca(marca: string): void {
-    
+    this.vehiculo.marca = marca; 
   }
 
   setModelo(modelo: string): void {
-    
+    this.vehiculo.modelo = modelo;
   }
 
   setColor(color: string): void {
-    
+    this.vehiculo.color = color;
   }
 
   setAsientos(cantidadAsientos: number): void {
-    
+    this.vehiculo.cantidadAsientos = cantidadAsientos;
   }
 
   build(): Vehiculo {
-    return 1;
+    return this.vehiculo;
   }
 }
