@@ -4,8 +4,19 @@
 
 
 class FabricarVehiculo {
-  constructor() {
+  private builder: VehiculoBuilder;
 
+  constructor(builder: VehiculoBuilder) {
+    this.builder = builder;
+  }
+
+  fabricarVehiculo(marca: string, modelo: string, color: string, cantidadAsientos: number) {
+    this.builder.setMarca(marca);
+    this.builder.setModelo(modelo);
+    this.builder.setColor(color);
+    this.builder.setAsientos(cantidadAsientos);
+
+    return this.builder.build();
   }
 }
 
