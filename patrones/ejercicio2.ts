@@ -61,3 +61,16 @@ class VehiculoBuilderEspecifico implements VehiculoBuilder {
     return this.vehiculo;
   }
 }
+
+// Prueba de fabricar vehiculos
+
+const fabrica1 = new FabricarVehiculo(new VehiculoBuilderEspecifico());
+const auto1 = fabrica1.fabricarVehiculo('Fiat', '147', 'Blanco', 3);
+
+const fabrica2 = new FabricarVehiculo(new VehiculoBuilderEspecifico());
+const auto2 = fabrica2.fabricarVehiculo('Volkswagen', 'gol trend', 'Gris', 4)
+
+console.log(auto1);
+console.log(auto2);
+
+// No estoy seguro de si usar el patron builder es lo mas apropiado.
