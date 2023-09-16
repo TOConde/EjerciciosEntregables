@@ -50,14 +50,19 @@ class Cuenta {
     } else {
       montoUSD = monto * USD;
     }
-
     return montoUSD
   }
 
   public realizarTransaccion(monto: number, moneda: string): void {
     const montoUSD = this.conversorMoneda(monto, moneda)
-    this.saldo += montoUSD;
-    this.transaccionLog.registrarTransaccion(monto, moneda, this.saldo);
+    const nuevoSaldo = this.saldo + montoUSD
+
+    if (nuevoSaldo >= 0) {
+      this.saldo = nuevoSaldo;
+      this.transaccionLog.registrarTransaccion(monto, moneda, this.saldo);
+    } else {
+      console.log(`Saldo insuficiente al querer retirar ${montoUSD}U$D`)
+    }    
   }
 
   public consultarSaldo(): number {
@@ -72,5 +77,7 @@ const cuenta = new Cuenta(123, 1000);
 cuenta.realizarTransaccion(200, "EUR");
 cuenta.realizarTransaccion(-100, "USD");
 cuenta.realizarTransaccion(10000, "ARS");
+cuenta.realizarTransaccion(-10000, "USD");
+cuenta.realizarTransaccion(20000, "ARS");
 
 log.mostrarTransacciones();
