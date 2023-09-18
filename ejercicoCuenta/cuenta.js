@@ -13,6 +13,9 @@ var Cuenta = /** @class */ (function () {
     Cuenta.prototype.getSaldo = function () {
         return this.saldo;
     };
+    Cuenta.prototype.getId = function () {
+        return this.id;
+    };
     Cuenta.prototype.mostrar = function () {
         console.log("*****");
         console.log("Titular: ".concat(this.titular, ", Saldo: ").concat(this.saldo, ", ID: ").concat(this.id));

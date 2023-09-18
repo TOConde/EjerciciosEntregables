@@ -17,6 +17,10 @@ export class Cuenta {
     return this.saldo
   }
 
+  getId() :number {
+    return this.id
+  }
+
   mostrar() {
     console.log("*****");
     console.log(`Titular: ${this.titular}, Saldo: ${this.saldo}, ID: ${this.id}`);
