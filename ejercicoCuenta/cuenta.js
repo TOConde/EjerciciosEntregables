@@ -13,6 +13,9 @@ var Cuenta = /** @class */ (function () {
     Cuenta.prototype.getSaldo = function () {
         return this.saldo;
     };
+    Cuenta.prototype.setSaldo = function (saldoNuevo) {
+        this.saldo = saldoNuevo;
+    };
     Cuenta.prototype.getId = function () {
         return this.id;
     };
