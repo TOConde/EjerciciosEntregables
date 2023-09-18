@@ -29,27 +29,45 @@ var CuentaCorriente = /** @class */ (function (_super) {
         var nuevoSaldo = this.getSaldo() + interesGanado;
         this.setSaldo(nuevoSaldo);
     };
-    CuentaCorriente.prototype.aplicarSobreGiro = function () {
+    CuentaCorriente.prototype.aplicarSobregiro = function (monto) {
+        var nuevoSaldo;
+        if (monto <= this.sobreGiro) {
+            nuevoSaldo = this.getSaldo() - monto;
+            this.sobreGiro -= monto;
+            this.setSaldo(nuevoSaldo);
+        }
+        else {
+            console.log("Sobregiro maximo excedido.");
+        }
     };
     return CuentaCorriente;
 }(cuenta_1.Cuenta));
 var CuentaAhorro = /** @class */ (function (_super) {
     __extends(CuentaAhorro, _super);
-    function CuentaAhorro(titular, saldo, id, interes) {
-        var _this = _super.call(this, titular, saldo, id) || this;
-        _this.interes = interes;
-        return _this;
+    /* no me parecio correcto poner el interes como una propiedad para poder calcular el interes, como pedia el ejercicio.
+    * private interes: number;
+    */
+    function CuentaAhorro(titular, saldo, id) {
+        return _super.call(this, titular, saldo, id) || this;
+        //this.interes = interes;
     }
-    CuentaAhorro.prototype.calcularInteres = function () {
+    CuentaAhorro.prototype.calcularInteres = function (interesMensual) {
+        var interesGanadoMensual = this.getSaldo() * interesMensual;
+        console.log("Se calculo el interes mensual de ".concat(this.getTitular(), ", con un saldo de ").concat(this.getSaldo(), " tendra un interes de: ").concat(interesGanadoMensual, " mensuales."));
     };
     return CuentaAhorro;
 }(cuenta_1.Cuenta));
-console.clear();
-console.log("");
-console.log("");
+console.clear(); //si no limpiaba la consola me imprimia las cosas del archivo de "cuenta.ts"
 console.log("*********Ejercicio Cuentas Bancarias***********");
 console.log("");
-var cuentaCorriente = new CuentaCorriente('pepe', 5000, 15, 500);
+var cuentaCorriente = new CuentaCorriente('lucas', 5000, 15, 500);
+var cuentaAhorro = new CuentaAhorro('martin', 100000, 150);
 cuentaCorriente.mostrar();
+cuentaAhorro.mostrar();
 cuentaCorriente.aplicarInteres();
 cuentaCorriente.mostrar();
+cuentaCorriente.aplicarSobregiro(200);
+cuentaCorriente.mostrar();
+cuentaCorriente.aplicarSobregiro(350);
+cuentaCorriente.mostrar();
+cuentaAhorro.calcularInteres(0.05);
