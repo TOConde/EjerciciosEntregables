@@ -1,7 +1,11 @@
+"use strict";
+exports.__esModule = true;
+exports.Cuenta = void 0;
 var Cuenta = /** @class */ (function () {
-    function Cuenta(titular, saldo) {
+    function Cuenta(titular, saldo, id) {
         this.titular = titular;
         this.saldo = saldo;
+        this.id = id;
     }
     Cuenta.prototype.getTitular = function () {
         return this.titular;
@@ -11,7 +15,7 @@ var Cuenta = /** @class */ (function () {
     };
     Cuenta.prototype.mostrar = function () {
         console.log("*****");
-        console.log("Titular: ".concat(this.titular, ", Saldo: ").concat(this.saldo));
+        console.log("Titular: ".concat(this.titular, ", Saldo: ").concat(this.saldo, ", ID: ").concat(this.id));
         console.log("*****");
     };
     Cuenta.prototype.ingresar = function (monto) {
@@ -52,8 +56,9 @@ var Cuenta = /** @class */ (function () {
     };
     return Cuenta;
 }());
-var cuenta1 = new Cuenta("pepe", 20050);
-var cuenta2 = new Cuenta("carlos", 10000);
+exports.Cuenta = Cuenta;
+var cuenta1 = new Cuenta("pepe", 20050, 1025);
+var cuenta2 = new Cuenta("carlos", 10000, 1026);
 cuenta1.mostrar();
 cuenta2.mostrar();
 cuenta1.transferir(1000, cuenta2);

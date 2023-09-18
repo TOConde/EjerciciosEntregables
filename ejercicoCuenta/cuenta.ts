@@ -1,10 +1,12 @@
-class Cuenta {
+export class Cuenta {
   private titular: string;
   private saldo: number;
+  private id: number;
 
-  constructor(titular: string, saldo: number) {
+  constructor(titular: string, saldo: number, id: number) {
     this.titular = titular;
     this.saldo = saldo;
+    this.id = id
   }
 
   getTitular(): string {
@@ -17,7 +19,7 @@ class Cuenta {
 
   mostrar() {
     console.log("*****");
-    console.log(`Titular: ${this.titular}, Saldo: ${this.saldo}`);
+    console.log(`Titular: ${this.titular}, Saldo: ${this.saldo}, ID: ${this.id}`);
     console.log("*****");
   }
 
@@ -58,8 +60,8 @@ class Cuenta {
   }
 }
 
-const cuenta1 = new Cuenta("pepe", 20050);
-const cuenta2 = new Cuenta("carlos", 10000);
+const cuenta1 = new Cuenta("pepe", 20050, 1025);
+const cuenta2 = new Cuenta("carlos", 10000, 1026);
 
 cuenta1.mostrar();
 cuenta2.mostrar();
