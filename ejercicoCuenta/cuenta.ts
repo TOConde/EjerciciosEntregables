@@ -17,6 +17,10 @@ export class Cuenta {
     return this.saldo
   }
 
+  setSaldo(saldoNuevo): void {
+    this.saldo = saldoNuevo;
+  }
+
   getId() :number {
     return this.id
   }
