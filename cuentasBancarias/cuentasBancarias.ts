@@ -34,15 +34,13 @@ class CuentaAhorro extends Cuenta {
   }
 }
 
-console.log("")
-console.log("")
-console.log("")
-console.log("*********Ejercicio Cuentas Bancarias***********")
-console.log("")
+console.clear(); //si no limpiaba la consola me imprimia las cosas del archivo de "cuenta.ts"
+console.log("*********Ejercicio Cuentas Bancarias***********");
+console.log("");
 
 const cuentaCorriente = new CuentaCorriente('pepe', 5000, 15, 500);
-cuentaCorriente.mostrar()
+cuentaCorriente.mostrar();
 
-cuentaCorriente.aplicarInteres()
+cuentaCorriente.aplicarInteres();
 
-cuentaCorriente.mostrar()
+cuentaCorriente.mostrar();

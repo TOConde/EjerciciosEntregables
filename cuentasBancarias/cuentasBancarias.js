@@ -44,7 +44,7 @@ var CuentaAhorro = /** @class */ (function (_super) {
     };
     return CuentaAhorro;
 }(cuenta_1.Cuenta));
-console.log("");
+console.clear();
 console.log("");
 console.log("");
 console.log("*********Ejercicio Cuentas Bancarias***********");
